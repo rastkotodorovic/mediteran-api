@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ArticlesController;
+use App\Http\Controllers\Api\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('articles', ArticlesController::class);
+
+Route::post('contact/send-mail', [ContactController::class, 'store']);
