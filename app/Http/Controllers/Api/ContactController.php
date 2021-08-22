@@ -18,6 +18,6 @@ class ContactController extends Controller
         Mail::to('cvijetapanic2@gmail.com')
             ->send(new ContactMe($contact));
 
-        return response()->json('Uspjesno ste poslali mail!');
+        return response()->json('Uspjesno ste poslali mail!', 200);
     }
 }

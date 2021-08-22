@@ -18,29 +18,4 @@ class ArticlesController extends Controller
     {
         return $article;
     }
-
-    public function create()
-    {
-
-    }
-
-    public function store(ArticleRequest $request)
-    {
-
-    }
-
-    public function edit()
-    {
-
-    }
-
-    public function update()
-    {
-
-    }
-
-    public function destroy()
-    {
-
-    }
 }

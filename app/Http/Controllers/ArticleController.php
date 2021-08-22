@@ -2,27 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Http\Requests\ArticleRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class ArticleController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.articles.index', [
-            'articles' => Article::all()
-        ]);
-    }
+        if ($request->ajax()) {
+            return DataTables::eloquent(
+                Article::query()
+            )
+                ->addColumn('action', function ($article) {
+                    return view('admin.articles.action', compact('article'));
+                })
+                ->make();
+        };
 
-    public function show()
-    {
-
+        return view('admin.articles.index');
     }
 
     public function create()
     {
-        return view ('admin.articles.create');
+        return view('admin.articles.create');
     }
 
     public function store(ArticleRequest $request)
@@ -37,13 +41,18 @@ class ArticleController extends Controller
 
     }
 
-    public function update()
+    public function update(ArticleRequest $request, Article $article)
     {
+        $article->update($request->validated());
 
+        return redirect(route('articles.index'));
     }
 
-    public function destroy()
+    public function destroy(Article $article)
     {
+        $article->delete();
 
+        return back();
     }
+
 }
