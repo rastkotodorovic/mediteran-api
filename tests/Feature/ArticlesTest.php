@@ -23,6 +23,24 @@ class ArticlesTest extends TestCase
     }
 
      /** @test */
+     public function articles_can_be_updated()
+     {
+         $this->post('/articles', [
+             'title' => 'Title',
+             'body' => 'Body',
+             'source' => 'Source'
+         ]);
+
+         $this->put('/articles/' . Article::first()->id, [
+             'title' => 'Updated',
+             'body' => 'Updated',
+             'source' => 'Updated',
+         ]);
+
+         $this->assertEquals('Updated', Article::first()->title);
+     }
+
+     /** @test */
      public function articles_can_be_deleted()
      {
          $this->post('/articles', [

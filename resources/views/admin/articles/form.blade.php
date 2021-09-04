@@ -22,7 +22,13 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="title">Title</label>
-                                    <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Title" name="title">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Title"
+                                        name="title"
+                                        value="{{ isset($article) ? $article->title : '' }}"
+                                    >
                                     @error('title')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -30,7 +36,14 @@
 
                                 <div class="form-group">
                                     <label for="body">Body</label>
-                                    <input type="text" class="form-control" id="body" aria-describedby="emailHelp" placeholder="Body" name="body">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="body"
+                                        placeholder="Body"
+                                        name="body"
+                                        value="{!! isset($article) ? $article->body : '' !!}"
+                                    >
                                     @error('body')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -38,7 +51,13 @@
 
                                 <div class="form-group">
                                     <label for="source">Source</label>
-                                    <input type="text" class="form-control" id="source" aria-describedby="emailHelp" placeholder="Source" name="source">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Source"
+                                        name="source"
+                                        value="{{ isset($article) ? $article->source : '' }}"
+                                    >
                                     @error('source')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -64,7 +83,7 @@
 
     <script>
         tinymce.init({
-            selector: '#tekst',
+            selector: '#body',
             plugins: 'autoresize advlist hr charmap fullscreen insertdatetime image link preview searchreplace visualblocks wordcount help lists code pagebreak',
             toolbar: 'fullscreen | undo redo | bold italic forecolor backcolor styleselect | numlist bullist | alignleft aligncenter alignright alignjustify | link insertfile image | a11ycheck preview code visualblocks wordcount | searchreplace | help | pagebreak',
             advlist_bullet_styles: "square",

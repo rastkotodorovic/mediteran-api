@@ -26,7 +26,7 @@ class ArticleController extends Controller
 
     public function create()
     {
-        return view('admin.articles.create');
+        return view('admin.articles.form');
     }
 
     public function store(ArticleRequest $request)
@@ -36,9 +36,11 @@ class ArticleController extends Controller
         return redirect(route('articles.index'));
     }
 
-    public function edit()
+    public function edit(Article $article)
     {
-
+        return view('admin.articles.form', [
+            'article' => $article
+        ]);
     }
 
     public function update(ArticleRequest $request, Article $article)
@@ -54,5 +56,4 @@ class ArticleController extends Controller
 
         return back();
     }
-
 }

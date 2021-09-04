@@ -88,7 +88,7 @@
                                         <a href="{{ route('articles.index') }}">List</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('articles.create') }}">Add</a>
+                                        <a href="{{ route('articles.create') }}">Add news</a>
                                     </li>
                                 </ul>
                             </div>
@@ -108,10 +108,8 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/standalone/selectize.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropper/4.1.0/cropper.js" referrerpolicy="origin"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.9.1/tinymce.min.js"></script>
     <script type="text/javascript" src="{{ mix('js/all.js') }}"></script>
 
     <script>
